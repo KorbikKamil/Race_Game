@@ -24,13 +24,21 @@ class Race
         $this->displayInfo();
 
         foreach (range(1, $this->maxTours) as $tour) {
-            $this->displayTourInfo($tour);
+            $this->tour($tour);
         }
     }
 
-    public function displayInfo(): void
+    private function tour (int $tour) {
+        $this->displayTourInfo($tour);
+        foreach ($this->vehicles as $vehicle){
+            $vehicle->move();
+        }
+    }
+
+    private function displayInfo(): void
     {
         echo "\n Distance: \t {$this->distance}";
+        echo sprintf("\n Vehicles: \t %s", count($this->vehicles));
     }
 
     private function displayTourInfo(int $tour): void
