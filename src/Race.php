@@ -6,9 +6,11 @@ class Race
 {
     private $distance = 0.0;
     private $maxTours = 5;
+    private $weather;
 
-    public function __construct(float $distance = 5)
+    public function __construct(Weather $weather, float $distance = 5)
     {
+        $this->weather = $weather;
         $this->distance = $distance;
     }
 
