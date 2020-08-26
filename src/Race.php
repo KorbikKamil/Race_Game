@@ -7,11 +7,16 @@ class Race
     private $distance = 0.0;
     private $maxTours = 5;
     private $weather;
+    private $vehicles = [];
 
     public function __construct(Weather $weather, float $distance = 5)
     {
         $this->weather = $weather;
         $this->distance = $distance;
+    }
+
+    public function addVehicle($vehicle) : void {
+        $this->vehicles[] = $vehicle;
     }
 
     public function run(): void
