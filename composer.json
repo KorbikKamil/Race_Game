@@ -1,0 +1,17 @@
+{
+    "name": "race/php",
+    "description": "Simple project in php",
+    "type": "project",
+    "authors": [
+        {
+            "name": "KorbikKamil",
+            "email": "korbik.gm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Project\\": "src/"
+        }
+    },
+    "require": {}
+}
