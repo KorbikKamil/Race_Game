@@ -11,8 +11,8 @@ use \Project\Motorcycle;
 $weather = new Weather();
 
 $race = new Race($weather);
-$race->addVehicle(new Car());
-$race->addVehicle(new Car());
-$race->addVehicle(new Car());
-$race->addVehicle(new Motorcycle());
+$race->addVehicle(new Car(1));
+$race->addVehicle(new Car(2));
+$race->addVehicle(new Car(3));
+$race->addVehicle(new Motorcycle(1));
 $race->run();
