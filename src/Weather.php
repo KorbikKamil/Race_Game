@@ -5,7 +5,8 @@ namespace Project;
 class Weather{
     private $current = 'shining';
 
-    public function getWeather(){
-        return $this->current;
+    public function __toString() : string
+    {
+        return "Current weather {$this->current}";
     }
 }

@@ -31,5 +31,6 @@ class Race
     private function displayTourInfo(int $tour): void
     {
         echo "\n Tour {$tour} began:";
+        echo "\n {$this->weather}";
     }
 }
