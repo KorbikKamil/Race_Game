@@ -2,12 +2,7 @@
 
 namespace Project;
 
-class Truck{
-    private $name;
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
+class Truck extends Vehicle {
     public function move() : void{
         echo "\n Moving Truck ({$this->name})";
     }
