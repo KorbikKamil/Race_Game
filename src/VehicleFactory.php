@@ -20,10 +20,8 @@ class VehicleFactory {
             case self::TRUCK:
                 $vehicle = new Truck($name);
                 break;
-        }
-
-        if(!$vehicle){
-            throw new \Exception('Could not recognise type');
+            default:
+                throw new \Exception('Could not recognise type');
         }
 
         return $vehicle;
