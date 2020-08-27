@@ -18,6 +18,7 @@ class Race
 
     public function addVehicle(Vehicle_interface $vehicle): void
     {
+        $this->addObserver($vehicle);
         $this->vehicles[] = $vehicle;
     }
 
@@ -32,7 +33,8 @@ class Race
         $this->displayWinners();
     }
 
-    public function addObserver($observer){
+    public function addObserver($observer): void
+    {
         $this->observers[] = $observer;
     }
 
@@ -41,12 +43,8 @@ class Race
         $this->weather->randomizeWeather();
         $this->displayTourInfo($tour);
 
-        foreach ($this->observers as $observer){
+        foreach ($this->observers as $observer) {
             $observer->notify('nextTurn');
-        }
-
-        foreach ($this->vehicles as $vehicle) {
-            $vehicle->move();
         }
     }
 

@@ -23,11 +23,7 @@ $race->addVehicle(new ShinyCar($builder->build()));
 
 
 $builder->setName('cde');
-$car = $builder->build();
-
-$race->addObserver($car);
-
-$race->addVehicle($car);
+$race->addVehicle($builder->build());
 
 $builder->setType(VehicleBuilder::TRUCK);
 $builder->setName('ghi');
