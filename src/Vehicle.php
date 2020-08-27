@@ -2,7 +2,7 @@
 
 namespace Project;
 
-abstract class Vehicle implements Vehicle_interface
+abstract class Vehicle implements Vehicle_interface, Observer
 {
     protected $name;
     protected $type;

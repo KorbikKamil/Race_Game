@@ -2,7 +2,7 @@
 
 namespace Project;
 
-class ShinyCar implements Vehicle_interface {
+class ShinyCar implements Vehicle_interface, Observer {
     /**
      * @var Car
      */
@@ -33,4 +33,8 @@ class ShinyCar implements Vehicle_interface {
         return $this->car->getType();
     }
 
+    public function notify(string $event): void
+    {
+        $this->car->notify($event);
+    }
 }
