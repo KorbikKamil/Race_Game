@@ -15,7 +15,7 @@ class Race
         $this->distance = $distance;
     }
 
-    public function addVehicle($vehicle) : void {
+    public function addVehicle(Vehicle $vehicle) : void {
         $this->vehicles[] = $vehicle;
     }
 
