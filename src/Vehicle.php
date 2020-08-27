@@ -5,6 +5,7 @@ namespace Project;
 abstract class Vehicle implements Vehicle_interface
 {
     protected $name;
+    protected $type;
 
     public function __construct(string $name)
     {
@@ -18,5 +19,7 @@ abstract class Vehicle implements Vehicle_interface
 
     abstract protected function getName(): string;
 
-    abstract protected function getType(): string;
+     protected function getType(): string{
+        return $this->type;
+    }
 }
