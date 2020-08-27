@@ -14,7 +14,11 @@ class Motorcycle extends Vehicle
 
     protected function preMove(): void
     {
-        $this->distance += $this->maxSpeed * rand(20,100) / 100;
-    }
+        $this->distance += $this->maxSpeed * rand(20, 100) / 100;
 
+        $wather = Weather::getInstance();
+        if ($wather->isRaining()) {
+            $this->distance -= 20;
+        }
+    }
 }

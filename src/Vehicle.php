@@ -2,7 +2,7 @@
 
 namespace Project;
 
-abstract class Vehicle implements Vehicle_interface
+abstract class Vehicle implements Vehicle_interface, Observer
 {
     protected $name;
     protected $type;
@@ -30,6 +30,13 @@ abstract class Vehicle implements Vehicle_interface
     public function getDistance(): float
     {
         return $this->distance;
+    }
+
+    public function notify(string $event): void
+    {
+        if($event === 'nextTurn'){
+            $this->move();
+        }
     }
 
     protected function postMove() : void {}

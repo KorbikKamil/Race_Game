@@ -2,12 +2,17 @@
 
 namespace Project;
 
-class Race
+class Race implements Observable
 {
     private $distance = 0.0;
     private $maxTours = 5;
     private $weather;
+    /**
+     * @var Vehicle[]
+     */
     private $vehicles = [];
+
+    use ObservedTrait;
 
     public function __construct(Weather $weather, float $distance = 5)
     {
@@ -17,6 +22,7 @@ class Race
 
     public function addVehicle(Vehicle_interface $vehicle): void
     {
+        $this->addObserver($vehicle);
         $this->vehicles[] = $vehicle;
     }
 
@@ -31,12 +37,18 @@ class Race
         $this->displayWinners();
     }
 
+    public function addObserver(Observer $observer): void
+    {
+        $this->observers[] = $observer;
+    }
+
     private function tour(int $tour)
     {
         $this->weather->randomizeWeather();
         $this->displayTourInfo($tour);
-        foreach ($this->vehicles as $vehicle) {
-            $vehicle->move();
+
+        foreach ($this->observers as $observer) {
+            $observer->notify('nextTurn');
         }
     }
 

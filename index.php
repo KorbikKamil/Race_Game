@@ -4,23 +4,38 @@ include_once __DIR__ . '/vendor/autoload.php';
 
 use \Project\Race;
 use \Project\Weather;
-use \Project\VehicleFactory;
 use \Project\VehicleBuilder;
+use \Project\ShinyCar;
 
-$builder = new VehicleBuilder();
+$b = new DI\ContainerBuilder();
+$b->addDefinitions(
+    [
+        'VB' => DI\create(VehicleBuilder::class),
+        'Weather' => DI\factory(
+            [
+                Weather::class,
+                'getInstance',
+            ]
+        ),
+        'Race' => DI\create(Race::class)->constructor(DI\get('Weather'))
+    ]
+);
+$container = $b->build();
+
+$builder = $container->get('VB');
 $builder->setType(VehicleBuilder::CAR);
 $builder->setName('abc');
 $builder->build();
 
-$weather = new Weather();
+$weather = $container->get('Weather');
 
-$race = new Race($weather);
+$race = $container->get('Race');
 
 $builder->setType(VehicleBuilder::CAR);
 $builder->setName('abc');
-$builder->build();
 
-$race->addVehicle($builder->build());
+$race->addVehicle(new ShinyCar($builder->build()));
+
 
 $builder->setName('cde');
 $race->addVehicle($builder->build());
