@@ -55,16 +55,26 @@ class Race
 
         foreach ($this->vehicles as $vehicle) {
             $category = $vehicle->getType();
-            if (!isset($winners[$category])) {
+            if ($this->isWinner($winners, $vehicle)) {
                 $winners[$category] = $vehicle;
-            } else {
-                if ($vehicle->getDistance() > $winners [$category]->getDistance()) {
-                    $winners[$category] = $vehicle;
-                }
             }
         }
 
         return $winners;
+    }
+
+    private function isWinner(array $winners, Vehicle_interface $vehicle)
+    {
+        $category = $vehicle->getType();
+
+        if (!isset($winners[$category])) {
+            return true;
+        } else {
+            if ($vehicle->getDistance() > $winners [$category]->getDistance()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private function displayInfo(): void
