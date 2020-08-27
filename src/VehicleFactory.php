@@ -2,15 +2,17 @@
 
 namespace Project;
 
-class VehicleFactory {
+class VehicleFactory
+{
     const CAR = 'car';
     const MOTORCYCLE = 'motorcycle';
     const TRUCK = 'truck';
 
-    public static function factory(string $type, string $name) : Vehicle{
+    public static function factory(string $type, string $name): Vehicle_interface
+    {
         $vehicle = null;
 
-        switch ($type){
+        switch ($type) {
             case self::CAR:
                 $vehicle = new Car($name);
                 break;

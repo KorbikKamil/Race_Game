@@ -2,7 +2,7 @@
 
 namespace Project;
 
-abstract class Vehicle{
+abstract class Vehicle implements Vehicle_interface {
     protected $name;
     public function __construct(string $name)
     {
