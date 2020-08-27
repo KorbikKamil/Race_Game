@@ -12,7 +12,7 @@ $builder->setType(VehicleBuilder::CAR);
 $builder->setName('abc');
 $builder->build();
 
-$weather = new Weather();
+$weather = Weather::getInstance();
 
 $race = new Race($weather);
 
