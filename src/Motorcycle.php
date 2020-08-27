@@ -2,12 +2,12 @@
 
 namespace Project;
 
-class Motorcycle extends Vehicle implements Vehicle_interface
+class Motorcycle extends Vehicle
 {
     protected $type = 'Motorcycle';
     protected $maxSpeed = 250;
 
-    protected function getName(): string
+    public function getName(): string
     {
         return $this->name;
     }

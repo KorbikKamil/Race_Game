@@ -15,7 +15,8 @@ class Race
         $this->distance = $distance;
     }
 
-    public function addVehicle(Vehicle_interface $vehicle) : void {
+    public function addVehicle(Vehicle_interface $vehicle): void
+    {
         $this->vehicles[] = $vehicle;
     }
 
@@ -26,25 +27,55 @@ class Race
         foreach (range(1, $this->maxTours) as $tour) {
             $this->tour($tour);
         }
+
+        $this->displayWinners();
     }
 
-    private function tour (int $tour) {
+    private function tour(int $tour)
+    {
         $this->weather->randomizeWeather();
         $this->displayTourInfo($tour);
-        foreach ($this->vehicles as $vehicle){
+        foreach ($this->vehicles as $vehicle) {
             $vehicle->move();
         }
     }
 
+    private function displayWinners(): void
+    {
+        $winners = $this->getWinners();
+        echo "\n WINNERS:";
+        foreach ($winners as $category => $winner) {
+            echo sprintf("\n Category: %s (%s) - %d", $category, $winner->getName(), $winner->getDistance());
+        }
+    }
+
+    private function getWinners(): array
+    {
+        $winners = [];
+
+        foreach ($this->vehicles as $vehicle) {
+            $category = $vehicle->getType();
+            if (!isset($winners[$category])) {
+                $winners[$category] = $vehicle;
+            } else {
+                if ($vehicle->getDistance() > $winners [$category]->getDistance()) {
+                    $winners[$category] = $vehicle;
+                }
+            }
+        }
+
+        return $winners;
+    }
+
     private function displayInfo(): void
     {
-        echo "\n Distance: \t {$this->distance}";
+        echo sprintf("\n Distance: \t %d", $this->distance);
         echo sprintf("\n Vehicles: \t %s", count($this->vehicles));
     }
 
     private function displayTourInfo(int $tour): void
     {
-        echo "\n Tour {$tour} began:";
-        echo "\n {$this->weather}";
+        echo sprintf("\n Tour %s began:", $tour);
+        echo sprintf("\n %s", $this->weather);
     }
 }

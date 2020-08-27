@@ -20,13 +20,18 @@ abstract class Vehicle implements Vehicle_interface
         $this->postMove();
     }
 
-    protected function getType(): string
+    public function getType(): string
     {
         return $this->type;
     }
 
-    protected function postMove() : void { }
-    abstract protected function preMove() : void;
-    abstract protected function getName(): string;
+    abstract public function getName(): string;
 
+    public function getDistance(): float
+    {
+        return $this->distance;
+    }
+
+    protected function postMove() : void {}
+    protected function preMove() : void {}
 }
