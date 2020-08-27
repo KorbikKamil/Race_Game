@@ -9,7 +9,5 @@ abstract class Vehicle implements Vehicle_interface {
         $this->name = $name;
     }
 
-    public function move() : void{
-        echo "\n Moving Vehicle ({$this->name})";
-    }
+    abstract protected function getName() : string;
 }
