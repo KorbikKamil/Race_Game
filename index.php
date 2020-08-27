@@ -9,8 +9,8 @@ use \Project\VehicleFactory;
 $weather = new Weather();
 
 $race = new Race($weather);
-$race->addVehicle(VehicleFactory::factory(VehicleFactory::CAR, 1));
-$race->addVehicle(VehicleFactory::factory(VehicleFactory::CAR, 2));
-$race->addVehicle(VehicleFactory::factory(VehicleFactory::CAR, 3));
-$race->addVehicle(VehicleFactory::factory(VehicleFactory::MOTORCYCLE, 1));
+$race->addVehicle(VehicleFactory::factory(VehicleFactory::CAR, 'abCD'));
+$race->addVehicle(VehicleFactory::factory(VehicleFactory::CAR, 'cdEF'));
+$race->addVehicle(VehicleFactory::factory(VehicleFactory::TRUCK, 'ghi'));
+$race->addVehicle(VehicleFactory::factory(VehicleFactory::MOTORCYCLE, 'zaW4'));
 $race->run();

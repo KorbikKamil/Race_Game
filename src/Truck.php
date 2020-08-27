@@ -2,13 +2,16 @@
 
 namespace Project;
 
-class Truck extends Vehicle implements Vehicle_interface {
-    public function move() : void{
-        echo "\n Moving Truck ({$this->name})";
-    }
+class Truck extends Vehicle implements Vehicle_interface
+{
 
     protected function getName(): string
     {
-        return $this->name;
+        return strtolower($this->name);
+    }
+
+    protected function getType(): string
+    {
+        return 'Truck';
     }
 }
