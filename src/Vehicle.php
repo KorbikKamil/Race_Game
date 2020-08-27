@@ -32,6 +32,13 @@ abstract class Vehicle implements Vehicle_interface
         return $this->distance;
     }
 
+    public function notify(string $event): void
+    {
+        if($event === 'nextTurn'){
+            $this->move();
+        }
+    }
+
     protected function postMove() : void {}
     protected function preMove() : void {}
 }

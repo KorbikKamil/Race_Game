@@ -12,11 +12,17 @@ class Car extends Vehicle
         return strtoupper($this->name);
     }
 
-    protected function preMove(): void
+    public function notify(string $event): void
     {
-        $this->distance += $this->maxSpeed * rand(70,100) / 100;
+        if($event === 'nextTurn'){
+            $this->move();
+        }
     }
 
+    protected function preMove(): void
+    {
+        $this->distance += $this->maxSpeed * rand(70, 100) / 100;
+    }
 
 
 }
