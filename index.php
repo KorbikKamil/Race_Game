@@ -4,8 +4,8 @@ include_once __DIR__ . '/vendor/autoload.php';
 
 use \Project\Race;
 use \Project\Weather;
-use \Project\VehicleFactory;
 use \Project\VehicleBuilder;
+use \Project\ShinyCar;
 
 $builder = new VehicleBuilder();
 $builder->setType(VehicleBuilder::CAR);
@@ -18,9 +18,9 @@ $race = new Race($weather);
 
 $builder->setType(VehicleBuilder::CAR);
 $builder->setName('abc');
-$builder->build();
 
-$race->addVehicle($builder->build());
+$race->addVehicle(new ShinyCar($builder->build()));
+
 
 $builder->setName('cde');
 $race->addVehicle($builder->build());
