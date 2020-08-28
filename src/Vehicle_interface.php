@@ -2,7 +2,8 @@
 
 namespace Project;
 
-interface Vehicle_interface{
+interface Vehicle_interface
+{
     public function move() : void;
 
     public function getDistance() : float;
