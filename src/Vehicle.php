@@ -34,11 +34,16 @@ abstract class Vehicle implements Vehicle_interface, Observer
 
     public function notify(string $event): void
     {
-        if($event === 'nextTurn'){
+        if ($event === 'nextTurn') {
             $this->move();
         }
     }
 
-    protected function postMove() : void {}
-    protected function preMove() : void {}
+    protected function postMove(): void
+    {
+    }
+
+    protected function preMove(): void
+    {
+    }
 }

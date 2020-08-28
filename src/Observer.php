@@ -2,6 +2,7 @@
 
 namespace Project;
 
-interface Observer{
+interface Observer
+{
     public function notify(string $event): void;
 }

@@ -16,6 +16,4 @@ class Truck extends Vehicle
     {
         $this->distance += $this->maxSpeed * rand(80, 100) / 100;
     }
-
-
 }

@@ -2,7 +2,8 @@
 
 namespace Project;
 
-class ShinyCar implements Vehicle_interface, Observer {
+class ShinyCar implements Vehicle_interface, Observer
+{
     /**
      * @var Car
      */
@@ -13,23 +14,27 @@ class ShinyCar implements Vehicle_interface, Observer {
         $this->car=$car;
     }
 
-    public function move() : void{
+    public function move() : void
+    {
         ob_start();
         $this->car->move();
         ob_end_clean();
 
-       echo sprintf("\n I'm moving (%s) - %02.1f", $this->car->getName(), $this->car->getDistance() );
+        echo sprintf("\n I'm moving (%s) - %02.1f", $this->car->getName(), $this->car->getDistance());
     }
 
-    public function getDistance() : float{
+    public function getDistance() : float
+    {
         return $this->car->getDistance();
     }
 
-    public function getName() : string {
+    public function getName() : string
+    {
         return '___' . $this->car->getName();
     }
 
-    public function getType() : string {
+    public function getType() : string
+    {
         return $this->car->getType();
     }
 

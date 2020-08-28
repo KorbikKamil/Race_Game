@@ -4,5 +4,4 @@ namespace Project;
 
 interface Observable
 {
-
 }

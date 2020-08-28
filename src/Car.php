@@ -14,7 +14,7 @@ class Car extends Vehicle
 
     public function notify(string $event): void
     {
-        if($event === 'nextTurn'){
+        if ($event === 'nextTurn') {
             $this->move();
         }
     }
@@ -23,6 +23,4 @@ class Car extends Vehicle
     {
         $this->distance += $this->maxSpeed * rand(70, 100) / 100;
     }
-
-
 }

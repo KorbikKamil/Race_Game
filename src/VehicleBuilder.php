@@ -11,11 +11,13 @@ class VehicleBuilder
     private $name = '';
     private $type = '';
 
-    public function setType(string $type) : void{
+    public function setType(string $type) : void
+    {
         $this->type = $type;
     }
 
-    public function setName(string $name) : void{
+    public function setName(string $name) : void
+    {
         $this->name = $name;
     }
 
